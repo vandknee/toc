@@ -1,0 +1,81 @@
+[
+  {
+    "id": 1,
+    "name": "First Intercept",
+    "topic": "Signal analysis",
+    "brief": "Identify the alphabet and match exactly the four codebook tokens. Decode the distress call.",
+    "message": "X7-K2-A9-M4",
+    "rule": "X7|K2|A9|M4",
+    "initial": "X7",
+    "answer": "HELP",
+    "mode": "regex",
+    "mapping": {
+      "X7": "H",
+      "K2": "E",
+      "A9": "L",
+      "M4": "P"
+    },
+    "wheels": []
+  },
+  {
+    "id": 2,
+    "name": "Corrupted Transmission",
+    "topic": "Anomaly repair",
+    "brief": "The last token has its symbols reversed. Trace the rejection and repair the token to recover the four-letter call sign.",
+    "message": "M4-K2-K2-9A",
+    "rule": "X7|K2|A9|M4",
+    "initial": "X7|K2|A9|M4",
+    "answer": "PEEL",
+    "mode": "repair",
+    "mapping": {
+      "X7": "H",
+      "K2": "E",
+      "A9": "L",
+      "M4": "P"
+    },
+    "wheels": []
+  },
+  {
+    "id": 3,
+    "name": "Missing Automaton",
+    "topic": "Automata construction",
+    "brief": "Rebuild the recognizer for all binary words ending in 1. Add an accepting state and wire the two symbols.",
+    "message": "001",
+    "rule": "(0|1)*1",
+    "initial": "(0|1)*1",
+    "answer": "",
+    "mode": "builder",
+    "mapping": {},
+    "wheels": []
+  },
+  {
+    "id": 4,
+    "name": "Counterexample Hunt",
+    "topic": "Language equivalence",
+    "brief": "This machine accepts words ending in 1. Find the shortest disagreement, then repair it to accept exactly words ending in 01.",
+    "message": "101",
+    "rule": "(0|1)*01",
+    "initial": "(0|1)*01",
+    "answer": "",
+    "mode": "builder",
+    "mapping": {},
+    "wheels": []
+  },
+  {
+    "id": 5,
+    "name": "Cipher Wheel Mystery",
+    "topic": "Finite-state transduction",
+    "brief": "Set the three wheels to the logbook positions (2, 1, 9). Follow the XOR output bits to recover the instruction.",
+    "message": "10011110001111011110001011000111",
+    "rule": "(0|1)*",
+    "initial": "(0|1)*",
+    "answer": "OPEN",
+    "mode": "wheel",
+    "mapping": {},
+    "wheels": [
+      "10110",
+      "1011010",
+      "10110100001"
+    ]
+  }
+]
